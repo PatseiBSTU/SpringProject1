@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Person</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Create a Person:</h1>
+
+
+<form th:action="@{/addPerson}"
+      th:object="${personForm}" method="POST">
+
+    <div th:if="${#fields.hasErrors()}">
+ <span class="validationError">
+ Please correct the information.
+ </span>
+    </div>
+
+    First Name:
+    <input type="text" th:field="*{firstName}" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('firstName')}"
+          th:errors="*{firstName}">
+    </span>
+    <br/>
+    Last Name:
+    <input type="text" th:field="*{lastName}" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('lastName')}"
+          th:errors="*{lastName}">
+    </span>
+    <br/>
+    Street address:
+    <input type="text" th:field="*{street}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('street')}"
+          th:errors="*{street}">
+    </span>
+    <br/>
+    City:
+    <input type="text" th:field="*{city}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('city')}"
+          th:errors="*{city}">
+    </span>
+    <br/>
+    Zip code:
+    <input type="text" th:field="*{zip}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('zip')}"
+          th:errors="*{zip}">
+    </span>
+    <br/>
+    Email:
+    <input type="text" th:field="*{email}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}">
+    </span>
+    <br/>
+    Birthday:
+    <input type="text" th:field="*{birthday}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('birthday')}"
+          th:errors="*{birthday}">
+    </span>
+   <br/>
+   Phone:
+   <input type="text" th:field="*{phone}"/>
+   <span class="validationError"
+         th:if="${#fields.hasErrors('phone')}"
+         th:errors="*{phone}">
+    </span>
+    <br/>
+    <input type="submit" value="Create" />
+
+</form>
+<br/>
+<!--<div th:if="${errorMessage}" th:utext="${errorMessage}"-->
+     <!--style="color:red;font-style:italic;">-->
+<!--</div>-->
+</body>
